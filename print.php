@@ -30,6 +30,8 @@ if (!isset($_SESSION['nama'])) {
 			
 			 ?>
     <br>
+    <br>
+    <br>
     <div class="row justify-content-center">
   <div class="col-sm-6">
                 <div class="">
