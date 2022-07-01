@@ -78,4 +78,20 @@ elseif($_GET['act']=='delete'){
           echo "<script>alert('Data Karyawan berhasil dirubah.');window.location='../home.php';</script>";
         }
     }
+    elseif($_GET['act']=='ganti'){
+        $id = $_GET["id"];
+        $pass1 = $_POST["pass1"];
+        $pass2 = $_POST["pass2"];
+        if($pass1==$pass2){
+            $result = mysqli_query($conn,"UPDATE user SET password = '".md5($pass2)."' WHERE id = '$id'");
+            if(!$result){
+                die ("Query gagal dijalankan: ".mysqli_errno($conn).
+                                     " - ".mysqli_error($conn));
+            }else{
+              echo "<script>alert('Password Berhasil dirubah.');window.location='../home.php';</script>";
+            }   
+        }else{
+            echo "<script>alert(Password tidak sama.');window.location='../home.php';</script>";
+        }
+    }
 ?>
